@@ -1,4 +1,15 @@
-//如何配置环境变量和path路径，作用是什么？
-1.环境变量：是保证在dos在任意目录上都可以执行java和javac命令，而不是只在当前目录上可执行。
-2.先配置JAVA_HOME = 指向jdk安装的主目录
-3.编辑path环境，增加%JAVA_HOME%\bin
+public class HomeWork01{
+	public static void main(String[] args){
+		//�����������ʲô��
+		int n1;
+		n1 = 13;
+		int n2;
+		n2 =17;
+		int n3;
+		n3 = n1 + n2;
+		System.out.println("n3 = " + n3);//30
+		int n4 = 38;
+		int n5 = n4 - n3;
+		System.out.println("n5 = " + n5);//8
+	}
+}

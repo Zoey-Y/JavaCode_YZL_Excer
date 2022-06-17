@@ -1,4 +1,20 @@
-//javaçš„ç¼–å†™æ­¥éª¤
-1.ç¼–å†™Javaä»£ç 
-2.javacå·¥å…·ç¼–è¯‘æˆå¯¹åº”çš„.Classå­—èŠ‚ç æ–‡ä»¶
-3.javaè¿è¡Œæœ¬è´¨å°±æ˜¯æŠŠ.classåŠ è½½åˆ°jvmç¯å¢ƒä¸Šè¿è¡Œ
+public class HomeWork02{
+	public static void main(String[] args){
+		/*ÓÃcharÀàĞÍ·Ö±ğ±£´æ\n \t \r \\ 1 2 3ÕâĞ©×Ö·û,²¢´òÓ¡Êä³ö*/
+		char c1 = '\n';
+		char c2 = '\t';
+		char c3 = '\r';
+		char c4 = '\\';
+		char c5 = '1';
+		char c6 = '2';
+		char c7 = '3';
+		System.out.println("ÓÃcharÀàĞÍ·Ö±ğ±£´æ'\\n' '\\t' '\\r' '\\\' '1' '2' '3'ÕâĞ©×Ö·ûµÄ½á¹ûÎª£º");
+		System.out.println(c1); //»»ĞĞ
+		System.out.println(c2); //ÖÆ±í
+		System.out.println(c3); //»Ø³µ
+		System.out.println(c4); //Êä³öÒ»¸ö\
+		System.out.println(c5); //1
+		System.out.println(c6); //2
+		System.out.println(c7); //3
+	}
+}

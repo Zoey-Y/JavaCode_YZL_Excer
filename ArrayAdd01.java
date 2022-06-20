@@ -34,8 +34,8 @@ public class ArrayAdd01{
 		
 //1~4都先得执行至少一次所以用do_while
 		Scanner input = new Scanner(System.in);
+		int[] arr = {1,2,3};
 	    do{
-					int[] arr = {1,2,3};
 
 					//建立一个新的数组开辟新的空间,此空间比原来的大一
 					int[] arrNew = new int[arr.length + 1];
@@ -60,10 +60,10 @@ public class ArrayAdd01{
 					System.out.println("是否继续添加y/n");
 					char user = input.next().charAt(0);
 					switch(user){
-							case y:
-								user = 0;
+							case 'y':
+								user = (int)0;
 								break;
-							case n:
+							case 'n':
 								user = (int)1;
 								break;
 							default:

@@ -1,8 +1,25 @@
-//Java编写的7个规范
-1.类，方法的注释要使用javadoc（文档注释）
-2.非javadoc注释是对代码的说明（给维护者看的），说明如何修改，注意事项
-3.用tab，将整体代码右移，用shift + tab 整体左移
-4.运算符和 = 的两边注意空格
-5.源码文件使用 utf-8编码
-6.行宽字符不要超过80
-7.次行风格 和 行尾风格（推荐）
+import java.util.Scanner;
+public class HomeWork04{
+	public static void main(String[] args) {
+		/*
+		Ŀ��:�ж�һ�������Ƿ�Ϊˮ�ɻ�(һ��3λ��),
+	        �����λ�����������͵����䱾��.
+	        eg:153 = 1*1*1 + 3*3*3 + 5*5*5
+		*/
+		Scanner input = new Scanner(System.in);
+		System.out.print("����һ������>:");
+		int num = input.nextInt();
+		int cmp = num;	
+		int sum = 0;
+		while(num > 0){
+			sum += (num % 10) * (num % 10) * (num % 10);
+			num /= 10;
+		}
+		if(cmp == sum){
+			System.out.println(cmp + "��ˮ�ɻ�");
+		}else{
+			System.out.println(cmp + "����ˮ�ɻ�");
+		}
+
+	}
+}

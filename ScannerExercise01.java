@@ -1,19 +1,22 @@
-/*¹ØÓÚ°ü£¬ÀàµÄÉîÈëÑ§Ï°ÔÚºóÃæ*/
-import java.util.Scanner;//µ¼Èëjava.util°üÏÂµÄScannerÀà ¡ª¡ª¡ª¡ª> Step:1
+/*å…³äºåŒ…ï¼Œç±»çš„æ·±å…¥å­¦ä¹ åœ¨åé¢*/
+import java.util.Scanner;//å¯¼å…¥java.utilåŒ…ä¸‹çš„Scannerç±» â€”â€”â€”â€”> Step:1
 public class ScannerExercise01{
 	public static void main(String[] args){
-		/*´Ó¿ØÖÆÌ¨½ÓÊÕÓÃ»§ĞÅÏ¢,[ĞÕÃû,ÄêÁä,Ğ½Ë®]*/
+		/*ä»æ§åˆ¶å°æ¥æ”¶ç”¨æˆ·ä¿¡æ¯,[å§“å,å¹´é¾„,è–ªæ°´]*/
 
-		//new±íÊ¾´´½¨Ò»¸ö¶ÔÏó,ÕâÀïÊÇ´´½¨Ò»¸öScanner¶ÔÏó¡ª¡ª¡ª¡ª>Step:2
-		Scanner input = new Scanner(System.in);//inputÀ´½ÓÊÕ´´½¨µÄĞÂÀà
-		System.out.print("ÇëÒÀ´ÎÊäÈë\n ĞÕÃû >:");
-		//µ±Ö´ĞĞµ½next()·½·¨Ê±¹â±ê»áµÈ´ıÓÃ»§ÊäÈë
-		String name = input.next();//next()º¯ÊıÊÇ½ÓÊÕÓÃ»§ÊäÈëµÄ×Ö·û´®
-		System.out.print(" ÄêÁä >:");
-		int age = input.nextInt();//nextInt()½ÓÊÕº¯ÊıµÄintÀàĞÍ
-		System.out.print(" Ğ½Ë® >:");
-		double salary = input.nextDouble();//nextDouble()½ÓÊÕº¯ÊıµÄDoubleÀàĞÍ
-		System.out.println("ĞÕÃû\tÄêÁä\tĞ½Ë®");
+		//newè¡¨ç¤ºåˆ›å»ºä¸€ä¸ªå¯¹è±¡,è¿™é‡Œæ˜¯åˆ›å»ºä¸€ä¸ªScannerå¯¹è±¡â€”â€”â€”â€”>Step:2
+		Scanner input = new Scanner(System.in);//inputæ¥æ¥æ”¶åˆ›å»ºçš„æ–°ç±»
+		System.out.print("è¯·ä¾æ¬¡è¾“å…¥\n å§“å >:");
+		//å½“æ‰§è¡Œåˆ°next()æ–¹æ³•æ—¶å…‰æ ‡ä¼šç­‰å¾…ç”¨æˆ·è¾“å…¥
+		String name = input.next();//next()å‡½æ•°æ˜¯æ¥æ”¶ç”¨æˆ·è¾“å…¥çš„å­—ç¬¦ä¸²
+		System.out.print(" å¹´é¾„ >:");
+		int age = input.nextInt();//nextInt()æ¥æ”¶å‡½æ•°çš„intç±»å‹
+		System.out.print(" è–ªæ°´ >:");
+		double salary = input.nextDouble();//nextDouble()æ¥æ”¶å‡½æ•°çš„Doubleç±»å‹
+		System.out.println("å§“å\tå¹´é¾„\tè–ªæ°´");
 		System.out.println(name + "\t" + age + "\t" + salary );
+		//é‡ç‚¹è®°å¿†charçš„inputå†™æ³•
+		char word = input.next().Atchar(0);
+		System.out.println("è¾“å…¥çš„wordæ˜¯:" + word);
 	}
 }

@@ -1,90 +1,69 @@
 public class HomeWork01{
 	public static void main(String[] args) {
 		/*
-		目的:
-			1.某人有100,000元,没经过以此路口,需要交费,规则如下:
-			(1)当现金>50,000时,每次交5%
-			(2)当现金<=50,000时,每次交1000
-			编程计算该人可以经过多少次路口
-			要求:使用while break方式完成
+		需求:有一个升序数组{10,12,45,90},在其中添加一个新值23,
+		数组依然是一个升序数组,结果为{10,12,23,45,90}
+
+		思路:
+			1.创建一个新空间的数组,且空间比原数组大一
+			2.将原数组内元素赋给新数组
+			3.再把要添加的元素放到新数组的最后一个空间里
+			4.把新数组重新排序
+			5.打印
 		*/
-		/*//标准答案:
-		double someone = 100000;//剩余钱数
-		int count = 0;//统计通过路口的次数
-		while(true){
-			if(someone > 50000){
-				someone *= 0.95;
-				count++;
-				System.out.println("----剩余钱数为:" + someone + "----次数为:" +count);
-			}else if(someone >= 1000){
-				someone -= 1000;
-				count++;
-				System.out.println("----剩余钱数为:" + someone + "----次数为:" + count);
-			}else{
-				
-				break;
-			}
-
+		int[] arr = {10,12,45,90};
+		int[] arrAd = new int[arr.length + 1];//创建一个扩容了一个空间的新数组
+		int add = 23;//定义要添加的元素值
+		for(int i = 0;i < arr.length;i++){
+			arrAd[i] = arr[i];//把旧数组赋给多出一个空间的新数组
+			arrAd[arrAd.length - 1] = add;//再把新元素赋给新数组中的最后一个空间
 		}
-		System.out.println("100000的钱数可以路过" + count + "次路口" );*/
+		System.out.println("新数组未排序时的结果:");
+		for(int i = 0;i < arrAd.length;i++){
+			System.out.print(arrAd[i] + " ");
+		}
+		System.out.println("");
+		//现在给新数组排序
+		/*
+		第一组
+			[10 12 45 90 23] ————>[10 12 45 23 90]//对比了四次
+		第二组
+			[10 12 45 23 90] ————>[10 12 23 45 90]//对比了三次
+			*/
+		int tmp = 0;//初始化一个临食变量,目的是为了暂时存放一个要交换的元素
 		
-
-
-
-
-
-		/*//我的方法1:
-		double someone = 100000;//某人开始有的钱数
-		int stander = 50000;//收费准线
-		double charge = 0;//不同收费准线范围的收费钱数
-		int count = 0;//统计经过了多少次路口
-						while(someone > stander){
-							charge = someone*0.05;
-							someone -= charge;//某人的钱减少了
-							count++;
-							System.out.println("你的路费为:" + charge + "----剩余钱数为:" 
-												+ someone + "----次数为:" + count);
-							
-						}
-						
-						while(someone <= stander ){
-							charge = 1000;
-							someone -= charge;
-							count++;
-							System.out.println("你此时的路费为:" + charge + "----剩余钱数为:" 
-												+ someone + "----次数为:" + count);
-							if(someone < 1000){
-								System.out.println("已经没钱付路费了白白~");
-								break;
-							}
-							
-						}
-		System.out.println("你总共经过了" + count +"次路口");	*/	
-
-
-
-		
-		//我的方法2:	
-		int stander = 50000;
-			double charge = 0;
-			int count = 0;
-			for(double someone = 100000;someone > stander;someone -= charge){
-				charge = 100000*0.05;
-				count++;
-							System.out.println("你的路费为:" + charge + "----剩余钱数为:" 
-												+ someone + "----次数为:" +count);												
-			}
-			for(double someone = 100000;someone <= stander;someone -= charge){
-				charge = 1000;
-				count++;
-							System.out.println("你此时的路费为:" + charge + "----剩余钱数为:" 
-												+ someone + "----次数为:" + count);
-							if(someone < 1000){
-								System.out.println("已经没钱付路费了白白~");
-								break;
-							}
-			}
-		
-			
+		for(int i = 0;i < arrAd.length - 1;i++){//解决重复操作的循环层
+				for(int j = 0;j < arrAd.length - 1 - i;j++){//元素之间的对比层
+					//交换条件
+					if(arrAd[j] > arrAd[j + 1]){
+						tmp = arrAd[j];
+						arrAd[j] = arrAd[j + 1];
+						arrAd[j + 1] = tmp;
+					}
+				}
+				
+		}
+		System.out.println("新数组排序后的结果:");
+		for(int i = 0;i < arrAd.length;i++){
+			System.out.print(arrAd[i] + " ");
+		}
 	}
 }
+
+
+
+/*
+	冒泡排序再一次思维总结:(len:元素总个数,i:对比次数,j:对比的组数)
+		1.首先我会想到如果前面的元素比后面的元素大那就交换位置
+		2.这种对比的次数最多会对比(len - 1)次,也就是说若有5个乱序的元素,
+		  最多会对比(5-1=4)次,且筛选出最大值的位置后为一组,筛选出最大值后就不用在对比这个最大值了,
+		  因此第二组对比是筛选出倒数第二大元素,也就是只需要对比(5-2[2是因为第二组]=3)次,以此类推.
+		3.所以可以总结出:
+			(1)对比的次数的函数表达式是len - j
+			(2)又因为作为下标次数要减去1,所以 编写时要 len - j - 1代表对比次数层循环
+
+			(3)对比的组数规律永远都是元素总个数减一的
+			   组数的函数表达式:
+			   len - 1
+			   这里不用考虑下标问题,因为组数这里不做下标
+*/

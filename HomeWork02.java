@@ -1,23 +1,84 @@
-import java.util.Scanner;
 public class HomeWork02{
 	public static void main(String[] args) {
 		/*
-			Ä¿±ê:ÊµÏÖÒ»¸öÅĞ¶ÏÕûÊı,ÊôÓÚÄÄ¸ö·¶Î§: >0 ; <0 ; =0
-			Ë¼Â·:
-				1.ScannerÊµÏÖÊäÈëÊä³ö¹¦ÄÜ/»òÕßÀûÓÃ(int)(Math.random)*100 + 1µÄ·½Ê½À´Ëæ»úÅªÒ»¸ö100ÒÔÄÚµÄ
-				2.ÅĞ¶Ï·¶Î§
+		è¦æ±‚:
+			1.éšæœºç”Ÿæˆ10ä¸ªæ•´æ•°(1~100)ä¿å­˜åˆ°æ•°ç»„,
+			2.å€’åºæ‰“å°
+			3.æ±‚å¹³å‡å€¼
+			4.æ±‚æœ€å¤§å€¼å’Œæœ€å¤§å€¼çš„ä¸‹æ ‡
+			5.æŸ¥æ‰¾é‡Œé¢æ˜¯å¦æœ‰8
 		*/
-		Scanner input = new Scanner(System.in);
-		System.out.print("ÇëËæ±ãÊäÈëÒ»¸öÕûÊı>:");
-		int data = input.nextInt();//char word = input.next().At(0);
-			if(data > 0){
-				System.out.println("ÄãÊäÈëµÄÊı´óÓÚ0");
-			}else if(data < 0){
-				System.out.println("ÄãÊäÈëµÄÊıĞ¡ÓÚ0");
-			}else if(data == 0){
-				System.out.println("ÄãÊäÈëµÄÊıµÈÓÚ0");
-			}else{
-				System.out.println("ÄãÊäÈëµÄÊı²»·ûºÏÒªÇó");
+		//éšæœºç”Ÿæˆåä¸ªæ•°ä¹‹å‰,å…ˆåˆ›å»ºç©ºé—´
+			int[] arr = new int[10];
+						//æ±‚å¹³å‡å€¼
+						int sum = 0;
+						int aver = 0;
+				for(int i = 0;i < arr.length;i++){
+					arr[i] = (int)(Math.random()*100 + 1);//0.00*100=00 + 1 = 1~99çš„æ•°
+					sum += arr[i];
+				}
+						aver = sum / arr.length;
+						System.out.print("éšæœºç”Ÿæˆçš„å¹³å‡å€¼å€¼ä¸º:" + aver);
+						System.out.println();
+
+			//æ­£åº
+			System.out.println("æ•°ç»„çš„æ­£å¸¸é¡ºåº:");
+			for(int i = 0;i < arr.length;i++){
+				System.out.print(arr[i] + " ");
 			}
+			System.out.println();
+
+			//å€’åº			
+			System.out.println("æ•°ç»„å€’åºç»“æœ:");			
+			for(int i = arr.length - 1;i >= 0;i--){
+				System.out.print(arr[i] + " ");
+			}		
+			System.out.println();
+
+			//æ±‚æœ€å¤§å€¼ å’Œ æœ€å¤§å€¼çš„ä¸‹æ ‡
+			int max = arr[0];
+			int index = -1;//è®°å½•ä¸‹æ ‡
+			for(int i = 1;i < arr.length;i++){	
+						if (max < arr[i]) {
+							max = arr[i];
+							index = i; 	
+						}
+						
+			}
+			System.out.println("æ­£å¸¸é¡ºåºä¸‹çš„æœ€å¤§å€¼:" + max);
+			System.out.println("æ­£å¸¸é¡ºåºä¸‹çš„æœ€å¤§å€¼çš„ä¸‹æ ‡ï¼š" + index);
+
+			//æŸ¥æ‰¾æ•°ç»„é‡Œæ˜¯å¦æœ‰8
+			int findEeight = -1;
+			for(int i = 0;i < arr.length;i++){
+				if(arr[i] == 8){
+					findEeight = 1;
+				}
+			}
+			if(findEeight == -1){
+				System.out.println("è¯¥æ•°ç»„å†…æ²¡8");
+			}else {
+				System.out.println("è¯¥æ•°ç»„å†…æœ‰8");
+			}
+
+
+		//å€’å™æ‰“å°(åå†’æ³¡)iä¸ºç»„æ•°,jä¸ºæ¬¡æ•°
+			//åˆ¤æ–­å‰é¢çš„é‚£ä¸€ä¸ªæ•° æ¯” åé¢çš„é‚£ä¸€ä¸ªæ•°å° å°±äº¤æ¢
+			for(int i = 0;i < arr.length - 1;i++){
+				for(int j = 0;j < arr.length - 1 - i;j++){//sifting the smallest num into the far right
+						int tmp = 0;
+						if(arr[j] < arr[j + 1]){
+							tmp = arr[j];
+							arr[j] = arr[j + 1];
+							arr[j + 1]= tmp;
+						}
+
+				}
+			}
+				System.out.println("æœ€è¿‘ç”Ÿæˆçš„å€¼å¤§åˆ°å°æ’åºçš„æ‰“å°:");
+			for(int i = 0;i < arr.length;i++){
+				System.out.print(arr[i] + " ");
+			}	
+				
 	}
 }
